@@ -1,0 +1,71 @@
+{
+  "$defs": {
+    "FactFlag": {
+      "additionalProperties": false,
+      "properties": {
+        "fact_id": {
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "uncertain",
+            "conflicting"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact_id",
+        "status",
+        "reason"
+      ],
+      "title": "FactFlag",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "duplicate_groups": {
+      "items": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Duplicate Groups",
+      "type": "array"
+    },
+    "flags": {
+      "items": {
+        "$ref": "#/$defs/FactFlag"
+      },
+      "title": "Flags",
+      "type": "array"
+    },
+    "voice_guide": {
+      "title": "Voice Guide",
+      "type": "string"
+    },
+    "conflicts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Conflicts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "duplicate_groups",
+    "flags",
+    "voice_guide",
+    "conflicts"
+  ],
+  "title": "ProfileReconciliation",
+  "type": "object"
+}

@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "Requirement": {
+      "additionalProperties": false,
+      "properties": {
+        "requirement": {
+          "title": "Requirement",
+          "type": "string"
+        },
+        "importance": {
+          "enum": [
+            "mandatory",
+            "preferred",
+            "context"
+          ],
+          "title": "Importance",
+          "type": "string"
+        },
+        "match": {
+          "enum": [
+            "direct_match",
+            "transferable_match",
+            "weak_match",
+            "no_evidence"
+          ],
+          "title": "Match",
+          "type": "string"
+        },
+        "fact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "terminology": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Terminology",
+          "type": "array"
+        },
+        "cv_location": {
+          "title": "Cv Location",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requirement",
+        "importance",
+        "match",
+        "fact_ids",
+        "rationale",
+        "terminology",
+        "cv_location"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "company": {
+      "title": "Company",
+      "type": "string"
+    },
+    "role": {
+      "title": "Role",
+      "type": "string"
+    },
+    "role_family": {
+      "title": "Role Family",
+      "type": "string"
+    },
+    "seniority": {
+      "title": "Seniority",
+      "type": "string"
+    },
+    "responsibilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Responsibilities",
+      "type": "array"
+    },
+    "requirements": {
+      "items": {
+        "$ref": "#/$defs/Requirement"
+      },
+      "title": "Requirements",
+      "type": "array"
+    },
+    "ats_terms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Ats Terms",
+      "type": "array"
+    },
+    "gaps": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Gaps",
+      "type": "array"
+    },
+    "dangerous_claims_to_avoid": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Dangerous Claims To Avoid",
+      "type": "array"
+    },
+    "strategy": {
+      "title": "Strategy",
+      "type": "string"
+    }
+  },
+  "required": [
+    "company",
+    "role",
+    "role_family",
+    "seniority",
+    "responsibilities",
+    "requirements",
+    "ats_terms",
+    "gaps",
+    "dangerous_claims_to_avoid",
+    "strategy"
+  ],
+  "title": "JobAnalysis",
+  "type": "object"
+}

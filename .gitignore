@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+staging/current_application/
+applications/*/*.aux
+applications/*/*.log
+applications/*/*.out
+applications/*/*.fls
+applications/*/*.fdb_latexmk
+profile/raw_extraction/
+.codex/
+profile/versions/
+profile/.cache/
+applications/*/traces/
+applications/*/build/
+staging/
+
+
+# Private candidate evidence and generated application artifacts
+references/
+profile/
+applications/
+job_description.txt
+
+# Local LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk

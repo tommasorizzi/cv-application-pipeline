@@ -1,0 +1,8 @@
+simulation engineer — synthetic pipeline test
+
+develop and validate scientific simulation workflows for material response.
+required technical skills: Python, C++, Geant4 and FEM.
+preferred technical skills: SLURM and CUDA.
+communicate modelling assumptions and research results clearly.
+
+this is a synthetic test description, not an actual vacancy.

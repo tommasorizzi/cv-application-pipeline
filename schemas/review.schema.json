@@ -1,0 +1,61 @@
+{
+  "$defs": {
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "severity": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "severity",
+        "location",
+        "explanation"
+      ],
+      "title": "Finding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approved": {
+      "title": "Approved",
+      "type": "boolean"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "checked_claim_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Checked Claim Paths",
+      "type": "array"
+    }
+  },
+  "required": [
+    "approved",
+    "findings",
+    "checked_claim_paths"
+  ],
+  "title": "Review",
+  "type": "object"
+}

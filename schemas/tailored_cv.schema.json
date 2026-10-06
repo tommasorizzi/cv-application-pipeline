@@ -1,0 +1,256 @@
+{
+  "$defs": {
+    "Bullet": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "maxLength": 65,
+          "title": "Label",
+          "type": "string"
+        },
+        "claim": {
+          "$ref": "#/$defs/Claim"
+        }
+      },
+      "required": [
+        "label",
+        "claim"
+      ],
+      "title": "Bullet",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 1800,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "fact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Fact Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "fact_ids"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "Education": {
+      "additionalProperties": false,
+      "properties": {
+        "degree": {
+          "$ref": "#/$defs/Claim"
+        },
+        "institution": {
+          "$ref": "#/$defs/Claim"
+        },
+        "period": {
+          "$ref": "#/$defs/Claim"
+        },
+        "details": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Details",
+          "type": "array"
+        }
+      },
+      "required": [
+        "degree",
+        "institution",
+        "period",
+        "details"
+      ],
+      "title": "Education",
+      "type": "object"
+    },
+    "Experience": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/Claim"
+        },
+        "organisation": {
+          "$ref": "#/$defs/Claim"
+        },
+        "period": {
+          "$ref": "#/$defs/Claim"
+        },
+        "bullets": {
+          "items": {
+            "$ref": "#/$defs/Bullet"
+          },
+          "maxItems": 7,
+          "minItems": 1,
+          "title": "Bullets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "title",
+        "organisation",
+        "period",
+        "bullets"
+      ],
+      "title": "Experience",
+      "type": "object"
+    },
+    "Header": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/Claim"
+        },
+        "location": {
+          "$ref": "#/$defs/Claim"
+        },
+        "email": {
+          "$ref": "#/$defs/Claim"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Links",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "location",
+        "email",
+        "links"
+      ],
+      "title": "Header",
+      "type": "object"
+    },
+    "SkillGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "maxLength": 45,
+          "title": "Category",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "minItems": 1,
+          "title": "Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "items"
+      ],
+      "title": "SkillGroup",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "header": {
+      "$ref": "#/$defs/Header"
+    },
+    "headline": {
+      "$ref": "#/$defs/Claim"
+    },
+    "summary": {
+      "$ref": "#/$defs/Claim"
+    },
+    "section_order": {
+      "items": {
+        "enum": [
+          "experience",
+          "education",
+          "skills",
+          "publications",
+          "conferences",
+          "languages",
+          "projects"
+        ],
+        "type": "string"
+      },
+      "title": "Section Order",
+      "type": "array"
+    },
+    "experience": {
+      "items": {
+        "$ref": "#/$defs/Experience"
+      },
+      "minItems": 1,
+      "title": "Experience",
+      "type": "array"
+    },
+    "education": {
+      "items": {
+        "$ref": "#/$defs/Education"
+      },
+      "minItems": 1,
+      "title": "Education",
+      "type": "array"
+    },
+    "skills": {
+      "items": {
+        "$ref": "#/$defs/SkillGroup"
+      },
+      "minItems": 1,
+      "title": "Skills",
+      "type": "array"
+    },
+    "projects": {
+      "items": {
+        "$ref": "#/$defs/Bullet"
+      },
+      "title": "Projects",
+      "type": "array"
+    },
+    "publications": {
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Publications",
+      "type": "array"
+    },
+    "conferences": {
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Conferences",
+      "type": "array"
+    },
+    "languages": {
+      "items": {
+        "$ref": "#/$defs/Claim"
+      },
+      "title": "Languages",
+      "type": "array"
+    }
+  },
+  "required": [
+    "header",
+    "headline",
+    "summary",
+    "section_order",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "publications",
+    "conferences",
+    "languages"
+  ],
+  "title": "CV",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+\documentclass[11pt,a4paper]{article}
+{{ style }}
+\begin{document}
+{\Large\bfseries\color{accent}{{ header.name.text|latex }} }\\
+{{ header.location.text|latex }} \enspace | \enspace {{ header.email.text|latex }}
+
+\vspace{0.6em}
+{{ salutation|latex }}
+
+{% for paragraph in paragraphs %}
+{{ paragraph.text|latex }}
+
+{% endfor %}
+{{ signoff_text|latex }}\\
+{{ header.name.text|latex }}
+\end{document}

@@ -1,0 +1,55 @@
+{
+  "$defs": {
+    "Paragraph": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 2200,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "fact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "fact_ids"
+      ],
+      "title": "Paragraph",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "salutation": {
+      "title": "Salutation",
+      "type": "string"
+    },
+    "paragraphs": {
+      "items": {
+        "$ref": "#/$defs/Paragraph"
+      },
+      "maxItems": 6,
+      "minItems": 3,
+      "title": "Paragraphs",
+      "type": "array"
+    },
+    "signoff": {
+      "title": "Signoff",
+      "type": "string"
+    }
+  },
+  "required": [
+    "salutation",
+    "paragraphs",
+    "signoff"
+  ],
+  "title": "Letter",
+  "type": "object"
+}

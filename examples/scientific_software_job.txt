@@ -1,0 +1,21 @@
+Scientific Software Engineer — synthetic acceptance test
+Company: Example Scientific Computing (fictional)
+
+The team develops numerical software for researchers modelling coupled physical systems. The role focuses on maintainable simulation code, reliable data processing and reproducible HPC workflows.
+
+Required:
+- Practical C++ and Python development for scientific applications.
+- Experience implementing or extending numerical simulation software.
+- Linux-based scientific computing and version control with Git.
+- Ability to validate numerical results against independent evidence and explain modelling assumptions.
+- Clear technical communication with researchers from different disciplines.
+
+Preferred:
+- SLURM, MPI or OpenMP for cluster-based simulation campaigns.
+- Fortran or experience contributing to an existing scientific codebase.
+- Automated preprocessing, postprocessing and analysis of simulation results.
+- Kubernetes deployment of production services.
+
+For this application, emphasize software contributions, numerical methods, validation and HPC. Fusion is useful application context, but detailed material-damage physics is secondary. Do not imply production service deployment if the source documents only support local or research workflows.
+
+This is a fictional test vacancy, not an employer application.

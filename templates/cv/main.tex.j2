@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper]{article}
+{{ style }}
+\begin{document}
+{\Huge\bfseries {{ header.name.text|latex }} }\\[3pt]
+{\large\color{accent}{{ headline.text|latex }} }\\[3pt]
+{{ header.location.text|latex }} \enspace $\bullet$ \enspace
+\href{mailto:{{ header.email.text|latex }}}{ {{- header.email.text|latex -}} }\\[2pt]
+{% for link in header.links %}\href{ {{- link.text|url -}} }{ {{- link.text|link_label|latex -}} }{% if not loop.last %} \enspace $\bullet$ \enspace {% endif %}{% endfor %}
+
+\section*{Professional Profile}
+{{ summary.text|latex }}
+{% for section in section_order %}
+{% if section == 'experience' and experience %}
+\section*{Experience}
+{% for job in experience %}
+\textbf{ {{- job.title.text|latex -}} } \hfill {{ job.period.text|latex }}\\
+{{ job.organisation.text|latex }}
+\begin{itemize}
+{% for bullet in job.bullets %}
+\item \textbf{ {{- bullet.label|latex }}:} {{ bullet.claim.text|latex }}
+{% endfor %}
+\end{itemize}
+{% endfor %}
+{% elif section == 'education' and education %}
+\section*{Education}
+{% for entry in education %}
+\textbf{ {{- entry.degree.text|latex -}} } \hfill {{ entry.period.text|latex }}\\
+{{ entry.institution.text|latex }}{% for detail in entry.details %} \enspace | \enspace {{ detail.text|latex }}{% endfor %}{% if not loop.last %}\\[3pt]{% endif %}
+{% endfor %}
+{% elif section == 'skills' and skills %}
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+{% for group in skills %}
+\textbf{ {{- group.category|latex -}} } & {% for item in group['items'] %}{{ item.text|latex }}{% if not loop.last %}, {% endif %}{% endfor %}\\
+{% endfor %}
+\end{tabularx}
+{% elif section == 'projects' and projects %}
+\section*{Selected Projects}
+\begin{itemize}
+{% for project in projects %}\item \textbf{ {{ project.label|latex }}:} {{ project.claim.text|latex }}
+{% endfor %}\end{itemize}
+{% elif section == 'publications' and publications %}
+\section*{Selected Publications}
+\begin{itemize}
+{% for item in publications %}\item {{ item.text|latex }}
+{% endfor %}\end{itemize}
+{% elif section == 'conferences' and conferences %}
+\section*{Selected Conference Contributions}
+{% for item in conferences %}{{ item.text|latex }}{% if not loop.last %}\\[2pt]{% endif %}
+{% endfor %}
+{% elif section == 'languages' and languages %}
+\section*{Languages}
+{% for item in languages %}{{ item.text|latex }}{% if not loop.last %} $\bullet$ {% endif %}{% endfor %}
+{% endif %}
+{% endfor %}
+\end{document}
